@@ -7,7 +7,7 @@ function App() {
 	if(adult){
 		text=<p>adult</p>
 	}else{
-		text=<p>not adult</p>
+		text=<p>not adultt</p>
 	}
 	return <div>
 		{text}
