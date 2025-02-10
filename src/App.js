@@ -2,13 +2,12 @@ import React from 'react';
 
 function App() {
 	let text;
-	const isAdult = true;
+	const isAdmin = true;
 	
-	if (show) {
-		text = <p>Вам есть 18</p>;
-	} else {
-		text = <p>Вам нет 18</p>;
+	if (isAdmin) {
+		text = <p>ADMIN</p>;
 	}
+	
 	return <div>
 		{text}
 	</div>;
