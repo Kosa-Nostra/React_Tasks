@@ -1,25 +1,14 @@
 import React from 'react';
 
 function App() {
-	return <table>
-		<tbody>
-			<tr>
-				<td>1</td>
-				<td>2</td>
-				<td>3</td>
-			</tr>
-			<tr>
-				<td>4</td>
-				<td>5</td>
-				<td>6</td>
-			</tr>
-			<tr>
-				<td>7</td>
-				<td>8</td>
-				<td>9</td>
-			</tr>
-		</tbody>
-	</table>;
+	const num1 = 3;
+	const num2 = 2;
+	const otvet = 9;
+	
+	return <div>
+		result: {otvet}
+		
+	</div>;
 }
 
 export default App;
