@@ -9,10 +9,12 @@ function App() {
 		}
 		return sum;
 	  }
-	const sum = getDigitsSum(123);
+	const sum = getDigitsSum(12345);
 	
 	return <div>
-		{sum}
+		<p>
+			{getDigitsSum(12345)}
+		</p>
 	</div>
 }
 export default App;
