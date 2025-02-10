@@ -1,20 +1,15 @@
 import React from 'react';
 
 function App() {
-	function getDigitsSum(number) {
-		let sum = 0;
-		while (number > 0) {
-		  sum += number % 10;
-		  number = Math.floor(number / 10);
-		}
-		return sum;
-	  }
-	const sum = getDigitsSum(12345);
-	
+	function show1() {
+		alert(1);
+	}
+	function show2() {
+		alert(2);
+	}
 	return <div>
-		<p>
-			{getDigitsSum(12345)}
-		</p>
-	</div>
+		<button onClick={show1}>act1</button>
+		<button onClick={show2}>act2</button>
+	</div>;
 }
 export default App;
