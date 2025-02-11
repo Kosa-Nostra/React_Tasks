@@ -8,13 +8,16 @@ function id() {
 
 function App() {
 	const [isBanned, setIsBanned] = useState(false);
-
-  return (
-    <div>
-      <p>{isBanned ? "Пользователь забанен" : "Пользователь не забанен"}</p>
-      <button onClick={() => setIsBanned(true)}>Забанить</button>
-      <button onClick={() => setIsBanned(false)}>Разбанить</button>
-    </div>
-  );
-}
+  
+	return (
+	  <div>
+		<p>{isBanned ? "Пользователь забанен" : "Пользователь не забанен"}</p>
+		{isBanned ? (
+		  <button onClick={() => setIsBanned(false)}>Разбанить</button>
+		) : (
+		  <button onClick={() => setIsBanned(true)}>Забанить</button>
+		)}
+	  </div>
+	);
+  }
 export default App;
