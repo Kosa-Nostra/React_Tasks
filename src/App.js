@@ -1,14 +1,12 @@
 import React from 'react';
 
 function App() {
-	function handleClick(event) {
-		console.log(event.target); // Вывод event.target в консоль
-	  }
-	
-	  return (
-		<div>
-		  <button onClick={handleClick}>Кликни меня</button>
-		</div>
-	  );
+	function func(arg1, arg2) {
+		console.log(arg1, arg2);
 	}
+	
+	return <div>
+		<button onClick={() => func('eee', 'ggg')}>act</button>
+	</div>;
+}
 export default App;
