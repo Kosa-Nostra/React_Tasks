@@ -1,32 +1,25 @@
 import React from 'react';
-
-function App() {
-	const users = [
-		{id: 1, name: 'user1', surn: 'surn1', age: 30},
-		{id: 2, name: 'user2', surn: 'surn2', age: 31},
-		{id: 3, name: 'user3', surn: 'surn3', age: 32},
-	];
-	const rows = users.map(function(item) {
-		return <tr key={item.id}>
-			<td>{item.id}</td>
-			<td>{item.name}</td>
-			<td>{item.surn}</td>
-			<td>{item.age}</td>
-		</tr>;
-	});
-	
-	return <table>
-		<thead>
-			<tr>
-				<td>id</td>
-				<td>имя</td>
-				<td>фамилия</td>
-				<td>возраст</td>
-			</tr>
-		</thead>
-		<tbody>
-			{rows}
-		</tbody>
-	</table>;
+import { nanoid } from 'nanoid';
+import { v4 as uuidv4 } from 'uuid'; // Импортируем v4 из uuid
+function App() 
+{
+  const randomIdsNanoid = Array.from({ length: 5 }, () => nanoid());
+  const randomIdsUUID = Array.from({ length: 5 }, () => uuidv4());
+  return (
+    <div>
+      <h2>Случайные строки с помощью nanoid:</h2>
+      <ul>
+        {randomIdsNanoid.map(id => (
+          <li key={id}>{id}</li>
+        ))}
+      </ul>
+      <h2>Случайные UUID с помощью uuid:</h2>
+      <ul>
+        {randomIdsUUID.map(id => (
+          <li key={id}>{id}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 export default App;
