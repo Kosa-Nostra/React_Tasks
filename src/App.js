@@ -7,17 +7,18 @@ function id() {
 }
 
 function App() {
-	const [isBanned, setIsBanned] = useState(false);
-  
-	return (
-	  <div>
-		<p>{isBanned ? "Пользователь забанен" : "Пользователь не забанен"}</p>
-		{isBanned ? (
-		  <button onClick={() => setIsBanned(false)}>Разбанить</button>
-		) : (
-		  <button onClick={() => setIsBanned(true)}>Забанить</button>
-		)}
-	  </div>
-	);
-  }
+	function countplus() {
+		setCount(count + 1);
+	}
+	function countminus() {
+		setCount(count - 1);
+	}
+	const [count, setCount] = useState(0);
+	
+	return <div>
+		<span>{count}</span>
+		<button onClick={() => setCount(countplus)}>+</button>
+		<button onClick={() => setCount(countminus)}>-</button>
+	</div>;
+}
 export default App;
