@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import { v4 as uuidv4 } from 'uuid'; // Импортируем v4 из uuid
 
 function id() {
-	const randomIdsNanoid = Array.from({ length: 5 }, () => nanoid());
+	const randomIdsUUID = Array.from({ length: 5 }, () => uuidv4());
 }
 
 function App() 
