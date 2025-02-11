@@ -8,23 +8,16 @@ function id() {
 
 function App() 
 {
-  const randomIdsNanoid = Array.from({ length: 5 }, () => nanoid());
-  const randomIdsUUID = Array.from({ length: 5 }, () => uuidv4());
-  return (
-    <div>
-      <h2>Случайные строки с помощью nanoid:</h2>
-      <ul>
-        {randomIdsNanoid.map(id => (
-          <li key={id}>{id}</li>
-        ))}
-      </ul>
-      <h2>Случайные UUID с помощью uuid:</h2>
-      <ul>
-        {randomIdsUUID.map(id => (
-          <li key={id}>{id}</li>
-        ))}
-      </ul>
-    </div>
-  );
+	const prods = [
+		{id: id(), name: 'product1', cost: 100},
+		{id: id(), name: 'product2', cost: 200},
+		{id: id(), name: 'product3', cost: 300},
+	];
+	const res = prods.map(function(item) {
+			return <p key={item.id}>{item.name} {item.cost}</p>;
+	});	
+	return<div>
+		{res}
+	</div>
 }
 export default App;
