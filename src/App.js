@@ -6,15 +6,16 @@ function id() {
 	const randomIdsUUID = Array.from({ length: 5 }, () => uuidv4());
 }
 
-function App() 
-{
-	const [name, setName] = useState('Name');
-	const [surn, setSurn] = useState('Surn');
-	const [age, setAge] = useState('Age');
-	return <p>
-	<span>{name}</span>
-	<span>{surn}</span>
-	<span>{age}</span>
-</p>;
+function App() {
+	const [name, setName] = useState('prod');
+	
+	function clickHandler() {
+		setName('xxxx');
+	}
+	
+	return <div>
+		<span>{name}</span>
+		<button onClick={clickHandler}>btn</button>
+	</div>;
 }
 export default App;
