@@ -7,18 +7,20 @@ function id() {
 }
 
 function App() {
-	function countplus() {
-		setCount(count + 1);
+	const [value, setValue] = useState('text');
+	const [value2, setValue2] = useState('text');
+	function handleChange(event) {
+		setValue(event.target.value); 
 	}
-	function countminus() {
-		setCount(count - 1);
+	function handleChange2(event) {
+		setValue2(event.target.value); 
 	}
-	const [count, setCount] = useState(0);
-	
 	return <div>
-		<span>{count}</span>
-		<button onClick={() => setCount(countplus)}>+</button>
-		<button onClick={() => setCount(countminus)}>-</button>
+		<input value={value} onChange={handleChange} />
+		<p>text: {value}</p>
+		<input value={value2} onChange={handleChange2} />
+		<p>text: {value2}</p>
 	</div>;
+
 }
 export default App;
