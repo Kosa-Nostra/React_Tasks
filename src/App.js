@@ -7,15 +7,11 @@ function id() {
 }
 
 function App() {
-	const [name, setName] = useState('prod');
-	
-	function clickHandler() {
-		setName('xxxx');
-	}
+	const [Ban, setBan] = useState(false);
 	
 	return <div>
-		<span>{name}</span>
-		<button onClick={clickHandler}>btn</button>
+		<span>{Ban ? 'Вы забанены!' : 'Вы разбанены!Enjoy!'}</span>
+		<button onClick={() => setBan(!Ban)}>BAN</button>
 	</div>;
 }
 export default App;
