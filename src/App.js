@@ -7,20 +7,15 @@ function id() {
 }
 
 function App() {
-	const [value, setValue] = useState('text');
-	const [value2, setValue2] = useState('text');
+	const [value, setValue] = useState(0);
+	
 	function handleChange(event) {
-		setValue(event.target.value); 
+		setValue(event.target.value);
 	}
-	function handleChange2(event) {
-		setValue2(event.target.value); 
-	}
+	
 	return <div>
 		<input value={value} onChange={handleChange} />
-		<p>text: {value}</p>
-		<input value={value2} onChange={handleChange2} />
-		<p>text: {value2}</p>
+		<p>{value.length}</p>
 	</div>;
-
 }
 export default App;
