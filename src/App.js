@@ -12,15 +12,15 @@ function App() {
 	function handleChange(event) {
 		setValue(event.target.value);
 	}
-	function birthdate(value){
-		return 2025-value;
+	function temp(value){
+		return (value-32)*5/9;
 	}
 
 	return <div>
-		<p>Введите ваш возраст</p>
+		<p>Введите температуру в Фаренгейтах:</p>
 		<input value={value} onChange={handleChange} />
-		<p>Вы родились в </p>
-		<p>{birthdate(value)}</p>
+		<p>Вы градусах это: </p>
+		<p>{temp(value)}</p>
 	</div>;
 }
 export default App;
