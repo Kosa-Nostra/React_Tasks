@@ -5,36 +5,49 @@ import { v4 as uuidv4 } from 'uuid';
 function id() {
 	const randomIdsUUID = Array.from({ length: 5 }, () => uuidv4());
 }
-function App() {
-	const [number, setNumber] = useState("");
-	const [product, setProduct] = useState(null);
-  
-	const calculateProduct = () => {
-	  const num = parseInt(number, 10);
-	  if (isNaN(num) || num <= 0) {
-		setProduct(null);
-		return;
-	  }
-	  let productValue = 1;
-	  for (let i = 1; i <= num; i++) {
-		if (num % i === 0) {
-		  productValue *= i;
-		}
-	  }
-	  setProduct(productValue);
+
+function translit(word){
+	var answer = '';
+	var converter = {
+		'а': 'a',    'б': 'b',    'в': 'v',    'г': 'g',    'д': 'd',
+		'е': 'e',    'ё': 'e',    'ж': 'zh',   'з': 'z',    'и': 'i',
+		'й': 'y',    'к': 'k',    'л': 'l',    'м': 'm',    'н': 'n',
+		'о': 'o',    'п': 'p',    'р': 'r',    'с': 's',    'т': 't',
+		'у': 'u',    'ф': 'f',    'х': 'h',    'ц': 'c',    'ч': 'ch',
+		'ш': 'sh',   'щ': 'sch',  'ь': '',     'ы': 'y',    'ъ': '',
+		'э': 'e',    'ю': 'yu',   'я': 'ya',
+ 
+		'А': 'A',    'Б': 'B',    'В': 'V',    'Г': 'G',    'Д': 'D',
+		'Е': 'E',    'Ё': 'E',    'Ж': 'Zh',   'З': 'Z',    'И': 'I',
+		'Й': 'Y',    'К': 'K',    'Л': 'L',    'М': 'M',    'Н': 'N',
+		'О': 'O',    'П': 'P',    'Р': 'R',    'С': 'S',    'Т': 'T',
+		'У': 'U',    'Ф': 'F',    'Х': 'H',    'Ц': 'C',    'Ч': 'Ch',
+		'Ш': 'Sh',   'Щ': 'Sch',  'Ь': '',     'Ы': 'Y',    'Ъ': '',
+		'Э': 'E',    'Ю': 'Yu',   'Я': 'Ya'
 	};
-  
-	return (
-	  <div>
-		<input 
-		  type="text" 
-		  value={number} 
-		  onChange={(e) => setNumber(e.target.value)} 
-		  onBlur={calculateProduct} 
-		/>
-		{product !== null && <p>Произведение делителей: {product}</p>}
-	  </div>
-	);
-  }
+ 
+	for (var i = 0; i < word.length; ++i ) {
+		if (converter[word[i]] == undefined){
+			answer += word[i];
+		} else {
+			answer += converter[word[i]];
+		}
+	}
+ 
+	return answer;
+}
+
+function App() {
+	const [value, setValue] = useState('');
+	
+	function handleChange(event) {
+		setValue(event.target.value);
+	}
+	
+	return <div>
+		<textarea value={value} onChange={handleChange} />
+		<p>{translit(value)}</p>
+	</div>;
+}
   
 export default App;
