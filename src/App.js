@@ -38,23 +38,36 @@ function translit(word){
 }
 
 function App() {
-	const [value, setValue] = useState('');
+	const [value, setValue] = useState(1);
+	
+	function changeHandler(event) {
+		setValue(event.target.value);
+	}
 	
 	return <div>
-		<p>Выберите возрастную группу:</p>
-		<select value={value} onChange={event => setValue(event.target.value)}>
-			<option value="1">0 до 12</option>
-			<option value="2">от 13 до 17</option>
-			<option value="3">от 18 до 25</option>
-			<option value="4">старше 25 лет</option>
-		</select>
-		<p>
-			{value === '1' && 'вам от 0 до 12 лет'}
-			{value === '2' && 'вам от 13 до 17 лет'}
-			{value === '3' && 'вам от 18 до 25 лет'}
-			{value === '4' && 'вам более 25 лет'}
-		</p>
-	</div>;
+		<input
+			type="radio"
+			name="radio"
+			value="1"
+			checked={value === '1' ? true : false}
+			onChange={changeHandler}
+		/>
+		<input
+			type="radio"
+			name="radio"
+			value="2"
+			checked={value === '2' ? true : false}
+			onChange={changeHandler}
+		/>
+		<input
+			type="radio"
+			name="radio"
+			value="3"
+			checked={value === '3' ? true : false}
+			onChange={changeHandler}
+		/>
+		<p>Значение выбранной кнопки: {value}</p>
+	</div>
 }
   
 export default App;
