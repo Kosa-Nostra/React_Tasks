@@ -7,34 +7,27 @@ function id() {
 }
 
 function App() {
-	const [value1, setValue1] = useState(0);
-	const [value2, setValue2] = useState(0);
-	const [result, setResult] = useState(0);
-	
-	
-	function handleChange1(event) {
-		setValue1(event.target.value);
-	}
-	
-	function handleChange2(event) {
-		setValue2(event.target.value);
-	}
-	
-	function handleClick() {
-		setResult(Number(value1) + Number(value2));
-	}
-
-	function handleClick1() {
-		setResult(Number(value1) * Number(value2));
-	}
-	
-	return <div>
-		<input value={value1} onChange={handleChange1} />
-		<input value={value2} onChange={handleChange2} />
-		
-		<button onClick={handleClick}>btn</button>
-		<button onClick={handleClick1}>btn</button>
-		<p>result: {result}</p>
-	</div>;
-}
+	const [date1, setDate1] = useState("");
+	const [date2, setDate2] = useState("");
+	const [difference, setDifference] = useState(null);
+  
+	const calculateDifference = () => {
+	  if (date1 && date2) {
+		const d1 = new Date(date1);
+		const d2 = new Date(date2);
+		const diffTime = Math.abs(d2 - d1);
+		const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+		setDifference(diffDays);
+	  }
+	};
+  
+	return (
+	  <div>
+		<input type="date" value={date1} onChange={(e) => setDate1(e.target.value)} />
+		<input type="date" value={date2} onChange={(e) => setDate2(e.target.value)} />
+		<button onClick={calculateDifference}>Рассчитать</button>
+		{difference !== null && <p>Разница: {difference} дней</p>}
+	  </div>
+	);
+  }
 export default App;
