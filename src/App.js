@@ -45,28 +45,35 @@ function App() {
 	}
 	
 	return <div>
+		<p>Выберите ваш любимый язык программирования</p>
+		<p>JavaScript
 		<input
 			type="radio"
 			name="radio"
-			value="1"
-			checked={value === '1' ? true : false}
+			value="JS"
+			checked={value === 'JS' ? true : false}
 			onChange={changeHandler}
 		/>
+		</p>
+		<p>C++
 		<input
 			type="radio"
 			name="radio"
-			value="2"
-			checked={value === '2' ? true : false}
+			value="C++"
+			checked={value === 'C++' ? true : false}
 			onChange={changeHandler}
 		/>
+		</p>
+		<p>Python
 		<input
 			type="radio"
 			name="radio"
-			value="3"
-			checked={value === '3' ? true : false}
+			value="Python"
+			checked={value === 'Python' ? true : false}
 			onChange={changeHandler}
 		/>
-		<p>Значение выбранной кнопки: {value}</p>
+		</p>
+		<p>{value}? , неплохо!</p>
 	</div>
 }
   
