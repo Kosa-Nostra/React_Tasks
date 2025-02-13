@@ -38,26 +38,18 @@ function translit(word){
 }
 
 function App() {
-	const [text, setText] = useState("");
-  
-	const calculateSum = (input) => {
-	  const sum = input
-		.split("\n")
-		.map(line => parseFloat(line) || 0)
-		.reduce((acc, num) => acc + num, 0);
-	  return sum;
-	};
-  
-	return (
-	  <div>
-		<textarea 
-		  value={text} 
-		  onChange={(e) => setText(e.target.value)} 
-		  rows={5}
-		/>
-		<p>Сумма введенных чисел: {calculateSum(text)}</p>
-	  </div>
-	);
-  }
+	const [checked, setChecked] = useState(true);
+	const [message, setMessage] = useState("");
+
+  const handleClick = () => {
+    setMessage(checked ? "Привет, пользователь!" : "До свидания!");
+  };
+	
+	return <div>
+		<input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
+		<button onClick={handleClick}>BTN</button>
+		<p>состояние: {message}</p>
+	</div>;
+}
   
 export default App;
