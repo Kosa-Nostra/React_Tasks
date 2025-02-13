@@ -25,7 +25,7 @@ function App() {
 	  <div>
 		<input type="date" value={date1} onChange={(e) => setDate1(e.target.value)} />
 		<input type="date" value={date2} onChange={(e) => setDate2(e.target.value)} />
-		<button onClick={calculateDifference}>Рассчитать</button>
+		<button onClick={calculateDifference}>Рассчитать разницу</button>
 		{difference !== null && <p>Разница: {difference} дней</p>}
 	  </div>
 	);
