@@ -38,16 +38,26 @@ function translit(word){
 }
 
 function App() {
-	const [value, setValue] = useState('');
-	
-	function handleChange(event) {
-		setValue(event.target.value);
-	}
-	
-	return <div>
-		<textarea value={value} onChange={handleChange} />
-		<p>{translit(value)}</p>
-	</div>;
-}
+	const [text, setText] = useState("");
+  
+	const calculateSum = (input) => {
+	  const sum = input
+		.split("\n")
+		.map(line => parseFloat(line) || 0)
+		.reduce((acc, num) => acc + num, 0);
+	  return sum;
+	};
+  
+	return (
+	  <div>
+		<textarea 
+		  value={text} 
+		  onChange={(e) => setText(e.target.value)} 
+		  rows={5}
+		/>
+		<p>Сумма введенных чисел: {calculateSum(text)}</p>
+	  </div>
+	);
+  }
   
 export default App;
