@@ -38,43 +38,11 @@ function translit(word){
 }
 
 function App() {
-	const [value, setValue] = useState(1);
-	
-	function changeHandler(event) {
-		setValue(event.target.value);
-	}
+	const [value, setValue] = useState('');
 	
 	return <div>
-		<p>Выберите ваш любимый язык программирования</p>
-		<p>JavaScript
-		<input
-			type="radio"
-			name="radio"
-			value="JS"
-			checked={value === 'JS' ? true : false}
-			onChange={changeHandler}
-		/>
-		</p>
-		<p>C++
-		<input
-			type="radio"
-			name="radio"
-			value="C++"
-			checked={value === 'C++' ? true : false}
-			onChange={changeHandler}
-		/>
-		</p>
-		<p>Python
-		<input
-			type="radio"
-			name="radio"
-			value="Python"
-			checked={value === 'Python' ? true : false}
-			onChange={changeHandler}
-		/>
-		</p>
-		<p>{value}? , неплохо!</p>
-	</div>
+		<input defaultValue={value} />
+	</div>;
 }
-  
+
 export default App;
