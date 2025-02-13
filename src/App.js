@@ -38,19 +38,21 @@ function translit(word){
 }
 
 function App() {
-	const texts = ['Simferopol', 'Belogorsk', 'Sevastopol', 'Kerch'];
 	const [value, setValue] = useState('');
 	
-	const options = texts.map((text, index) => {
-		return <option key={index}>{text}</option>;
-	});
-	
 	return <div>
-		<select value={value} onChange={(event) => setValue(event.target.value)}>
-			{options}
+		<p>Выберите возрастную группу:</p>
+		<select value={value} onChange={event => setValue(event.target.value)}>
+			<option value="1">0 до 12</option>
+			<option value="2">от 13 до 17</option>
+			<option value="3">от 18 до 25</option>
+			<option value="4">старше 25 лет</option>
 		</select>
 		<p>
-			ваш выбор: {value}
+			{value === '1' && 'вам от 0 до 12 лет'}
+			{value === '2' && 'вам от 13 до 17 лет'}
+			{value === '3' && 'вам от 18 до 25 лет'}
+			{value === '4' && 'вам более 25 лет'}
 		</p>
 	</div>;
 }
