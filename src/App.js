@@ -38,24 +38,23 @@ function translit(word){
 }
 
 function App() {
-	const [checked, setChecked] = useState(true);
+	const [value, setValue] = useState('');
 	
-	let message;
-	if (checked) {
-		message = <div>
-		<h2>Абзац</h2>
-	</div>;
-	} else {
-		message = <div>
-		<p>
-		</p>
-	</div>
+	function handleChange(event) {
+		setValue(event.target.value);
 	}
 	
 	return <div>
-		<input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
-		<div>{message}</div>
+		<select value={value} onChange={handleChange}>
+			<option>Simferopol</option>
+			<option>Belogorsk</option>
+			<option>Sevastopol</option>
+			<option>Kerch</option>
+		</select>
+		<p>
+			ваш выбор: {value}
+		</p>
 	</div>;
-}  
+}
   
 export default App;
