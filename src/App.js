@@ -38,31 +38,29 @@ function translit(word){
 }
 
 function App() {
-	const [languages, setLanguages] = useState({ html: false, css: false, js: false });
-  
-	const handleChange = (event) => {
-	  const { name, checked } = event.target;
-	  setLanguages((prev) => ({ ...prev, [name]: checked }));
-	};
-  
-	return (
-	  <div>
-		<label>
-		  <input type="checkbox" name="html" checked={languages.html} onChange={handleChange} /> HTML
-		</label>
-		<p>{languages.html ? "Вы знаете HTML" : ""}</p>
-		
-		<label>
-		  <input type="checkbox" name="css" checked={languages.css} onChange={handleChange} /> CSS
-		</label>
-		<p>{languages.css ? "Вы знаете CSS" : ""}</p>
-		
-		<label>
-		  <input type="checkbox" name="js" checked={languages.js} onChange={handleChange} /> JavaScript
-		</label>
-		<p>{languages.js ? "Вы знаете JavaScript" : ""}</p>
-	  </div>
-	);
+	const [checked, setChecked] = useState(true);
+	
+	let message;
+	if (checked) {
+		message = <div>
+		<h2>Ура, вам уже есть 18</h2>
+		<p>
+			здесь расположен контент только для взрослых
+		</p>
+	</div>;
+	} else {
+		message = <div>
+		<p>
+			увы, вам еще нет 18 лет:/
+		</p>
+	</div>
+	}
+	
+	return <div>
+		<p>Вам есть 18?</p>
+		<input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
+		<div>{message}</div>
+	</div>;
 }  
   
 export default App;
