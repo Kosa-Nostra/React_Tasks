@@ -38,18 +38,16 @@ function translit(word){
 }
 
 function App() {
+	const texts = ['Simferopol', 'Belogorsk', 'Sevastopol', 'Kerch'];
 	const [value, setValue] = useState('');
 	
-	function handleChange(event) {
-		setValue(event.target.value);
-	}
+	const options = texts.map((text, index) => {
+		return <option key={index}>{text}</option>;
+	});
 	
 	return <div>
-		<select value={value} onChange={handleChange}>
-			<option>Simferopol</option>
-			<option>Belogorsk</option>
-			<option>Sevastopol</option>
-			<option>Kerch</option>
+		<select value={value} onChange={(event) => setValue(event.target.value)}>
+			{options}
 		</select>
 		<p>
 			ваш выбор: {value}
