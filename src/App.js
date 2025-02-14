@@ -8,14 +8,23 @@ function id() {
 
 
 function App() {
-	const [notes, setNotes] = useState([1, 2, 3, 4, 5]);
+	const [notes, setNotes] = useState(["Первый", "Второй", "Третий"]);
+	const [inputValue, setInputValue] = useState("");
   
 	const addNote = () => {
-	  setNotes([...notes, notes.length + 1]);
+	  if (inputValue.trim() !== "") {
+		setNotes([...notes, inputValue]);
+		setInputValue("");
+	  }
 	};
   
 	return (
 	  <div>
+		<input 
+		  type="text" 
+		  value={inputValue} 
+		  onChange={(e) => setInputValue(e.target.value)} 
+		/>
 		<button onClick={addNote}>Добавить</button>
 		<ul>
 		  {notes.map((note, index) => (
