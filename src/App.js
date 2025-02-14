@@ -8,35 +8,20 @@ function id() {
 
 
 function App() {
-	const initDate = {
-	  year: 2025,
-	  month: 12,
-	  day: 31,
-	};
+	const [notes, setNotes] = useState([1, 2, 3, 4, 5]);
   
-	const [date, setDate] = useState(initDate);
-  
-	const getWeekday = (year, month, day) => {
-	  const daysOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
-	  return daysOfWeek[new Date(year, month - 1, day).getDay()];
-	};
-  
-	const handleChange = (e) => {
-	  setDate({
-		...date,
-		[e.target.name]: Number(e.target.value),
-	  });
+	const addNote = () => {
+	  setNotes([...notes, notes.length + 1]);
 	};
   
 	return (
 	  <div>
-		<input type="number" name="year" value={date.year} onChange={handleChange} />
-		<input type="number" name="month" value={date.month} onChange={handleChange} />
-		<input type="number" name="day" value={date.day} onChange={handleChange} />
-		<p>Год: {date.year}</p>
-		<p>Месяц: {date.month}</p>
-		<p>День: {date.day}</p>
-		<p>День недели: {getWeekday(date.year, date.month, date.day)}</p>
+		<button onClick={addNote}>Добавить</button>
+		<ul>
+		  {notes.map((note, index) => (
+			<li key={index}>{note}</li>
+		  ))}
+		</ul>
 	  </div>
 	);
   }
