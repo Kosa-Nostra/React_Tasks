@@ -9,12 +9,17 @@ function App() {
 	  setNotes(copy);
 	}
   
+	function removeNote(index) {
+	  setNotes(notes.filter((_, i) => i !== index));
+	}
+  
 	return (
 	  <div>
 		<ul>
 		  {notes.map((note, index) => (
-			<li key={index} onClick={() => doSmth(index)}>
-			  {note}
+			<li key={index}>
+			  <span onClick={() => doSmth(index)}>{note}</span>
+			  <button onClick={() => removeNote(index)}>Удалить</button>
 			</li>
 		  ))}
 		</ul>
