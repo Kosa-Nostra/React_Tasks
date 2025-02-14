@@ -14,15 +14,25 @@ function App() {
 	  day: 31,
 	};
   
-	const [date] = useState(initDate);
+	const [date, setDate] = useState(initDate);
   
 	const getWeekday = (year, month, day) => {
 	  const daysOfWeek = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
 	  return daysOfWeek[new Date(year, month - 1, day).getDay()];
 	};
   
+	const handleChange = (e) => {
+	  setDate({
+		...date,
+		[e.target.name]: Number(e.target.value),
+	  });
+	};
+  
 	return (
 	  <div>
+		<input type="number" name="year" value={date.year} onChange={handleChange} />
+		<input type="number" name="month" value={date.month} onChange={handleChange} />
+		<input type="number" name="day" value={date.day} onChange={handleChange} />
 		<p>Год: {date.year}</p>
 		<p>Месяц: {date.month}</p>
 		<p>День: {date.day}</p>
