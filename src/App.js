@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-import { useState } from "react";
-
 function App() {
   const [notes, setNotes] = useState(["Первый", "Второй", "Третий"]);
 
