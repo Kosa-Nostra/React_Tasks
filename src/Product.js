@@ -1,8 +1,9 @@
 import React from 'react';
 
-function Product() {
+function Product({ name, cost }) {
 	return <p>
-		product
+		name: <span>{name}</span>,
+		cost: <span>{cost}</span>
 	</p>;
 }
 
