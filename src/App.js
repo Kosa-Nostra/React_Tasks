@@ -1,18 +1,28 @@
 import React, { useState } from 'react';
 
-function App() {
-  const [notes, setNotes] = useState(["Первый", "Второй", "Третий"]);
+import { useState } from "react";
 
-  function removeItem(index) {
-    setNotes(notes.filter((_, i) => i !== index));
+function App() {
+  const [notes, setNotes] = useState([
+    { first: "Первый", second: "Второй", third: "Третий" },
+    { first: "Четвертый", second: "Пятый", third: "Шестой" },
+  ]);
+  const [inputs, setInputs] = useState({ first: "", second: "", third: "" });
+
+  function handleClick(note) {
+    setInputs(note);
   }
 
   return (
     <div>
+      <input name="first" value={inputs.first} readOnly />
+      <input name="second" value={inputs.second} readOnly />
+      <input name="third" value={inputs.third} readOnly />
       <ul>
         {notes.map((note, index) => (
           <li key={index}>
-            {note} <button onClick={() => removeItem(index)}>Удалить</button>
+            {note.first} {note.second} {note.third} 
+            <button onClick={() => handleClick(note)}>Заполнить</button>
           </li>
         ))}
       </ul>
