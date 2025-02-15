@@ -1,9 +1,10 @@
 import React from "react";
 
-const User = ({ user }) => {
+const User = ({ user, onBan }) => {
   return (
     <p>
-      {user.id} {user.name} {user.surname}, возраст: {user.age}
+      {user.name} {user.surname}, возраст: {user.age}
+      <button onClick={() => onBan(user.id)}>Забанить</button>
     </p>
   );
 };

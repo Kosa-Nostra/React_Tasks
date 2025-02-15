@@ -12,10 +12,14 @@ const initUsers = [
 const Users = () => {
   const [users, setUsers] = useState(initUsers);
 
+  const handleBan = (id) => {
+    setUsers(users.filter((user) => user.id !== id));
+  };
+
   return (
     <div>
       {users.map((user) => (
-        <User key={user.id} user={user} />
+        <User key={user.id} user={user} onBan={handleBan} />
       ))}
     </div>
   );

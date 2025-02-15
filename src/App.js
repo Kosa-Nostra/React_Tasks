@@ -7,12 +7,12 @@ function id(){
 }
 
 function App() {
-	return (
-	  <div>
-		<h2>Список пользователей:</h2>
-		<Users />
-	  </div>
-	);
-  }
+  return (
+    <div>
+      <h2>Список пользователей:</h2>
+      <Users />
+    </div>
+  );
+}
 
 export default App;
