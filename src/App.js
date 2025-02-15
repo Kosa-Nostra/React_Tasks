@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
 
 function App() {
-	const [notes, setNotes] = useState([1, 2, 3, 4, 5]);
+	const [notes, setNotes] = useState(["Первый", "Второй", "Третий"]);
+	const [inputValue, setInputValue] = useState("");
   
-	function doSmth(index) {
-	  let copy = [...notes];
-	  copy[index] = copy[index] ** 2;
-	  setNotes(copy);
-	}
-  
-	function removeNote(index) {
-	  setNotes(notes.filter((_, i) => i !== index));
+	function handleLiClick(note) {
+	  setInputValue(note);
 	}
   
 	return (
 	  <div>
+		<input 
+		  type="text" 
+		  value={inputValue} 
+		  onChange={(e) => setInputValue(e.target.value)} 
+		/>
 		<ul>
 		  {notes.map((note, index) => (
-			<li key={index}>
-			  <span onClick={() => doSmth(index)}>{note}</span>
-			  <button onClick={() => removeNote(index)}>Удалить</button>
+			<li key={index} onClick={() => handleLiClick(note)}>
+			  {note}
 			</li>
 		  ))}
 		</ul>
