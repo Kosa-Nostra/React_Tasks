@@ -4,7 +4,8 @@ import User from './User';
 
 function App() {
 	return <div>
-		<Product />
+		<User />
+		<User />
 		<User />
 	</div>;
 }
