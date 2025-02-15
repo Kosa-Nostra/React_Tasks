@@ -1,9 +1,11 @@
 import React from 'react';
 
-function User() {
+function User({name, surn, age}) {
     return <p>
-       ТУТ БУДУТ ПОЛЬЗОВАТЕЛИ 
-    </p>;
+		name: <span>{name}</span>,
+        surn: <span>{surn}</span>
+        age: <span>{age}</span>
+	</p>;
 }
 
 export default User;
