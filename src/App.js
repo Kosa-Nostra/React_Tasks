@@ -16,11 +16,17 @@ function App() {
 	];
 
 	return <div>
-		<tr>
-			<td>
+		<td>
+			<tr>
 				<User name={users[0].name} surn={users[0].surn} age={users[0].age} />
-			</td>
-		</tr>
+			</tr>
+			<tr>
+				<User name={users[1].name} surn={users[1].surn} age={users[1].age} />
+			</tr>
+			<tr>
+				<User name={users[2].name} surn={users[2].surn} age={users[2].age} />
+			</tr>
+		</td>
 	</div>;
 }
 
