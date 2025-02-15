@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-function User({name, surn, age}) {
-    return <p>
-		name: <span>{name}</span>,
-        surn: <span>{surn}</span>
-        age: <span>{age}</span>
-	</p>;
-}
+const User = ({ user }) => {
+  return (
+    <p>
+      {user.name} {user.surname}, возраст: {user.age}
+    </p>
+  );
+};
 
 export default User;
