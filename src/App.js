@@ -1,55 +1,50 @@
 import React, { useState } from 'react';
 
+const id = () => '_' + Math.random().toString(36).substr(2, 9); // Простой генератор id
+
+const initNotes = [
+  {
+    id: id(),
+    name: 'name1',
+    desc: 'long description 1',
+    show: false,
+  },
+  {
+    id: id(),
+    name: 'name2',
+    desc: 'long description 2',
+    show: false,
+  },
+  {
+    id: id(),
+    name: 'name3',
+    desc: 'long description 3',
+    show: false,
+  },
+];
+
 function App() {
-  const [notes, setNotes] = useState([
-    { first: "Первый", second: "Второй", third: "Третий" },
-    { first: "Четвертый", second: "Пятый", third: "Шестой" },
-  ]);
-  const [inputs, setInputs] = useState({ first: "", second: "", third: "" });
+  const [notes, setNotes] = useState(initNotes);
 
-  function handleClick(note) {
-    setInputs(note);
-  }
+  const toggleDescription = (id) => {
+    setNotes(prevNotes =>
+      prevNotes.map(note =>
+        note.id === id ? { ...note, show: !note.show } : note
+      )
+    );
+  };
 
-  function handleUpdate(index) {
-    const updatedNotes = [...notes];
-    updatedNotes[index] = inputs;
-    setNotes(updatedNotes);
-  }
+  const result = notes.map(note => (
+    <p key={note.id}>
+      {note.name},
+      {note.show && <i>{note.desc}</i>}
+      <button onClick={() => toggleDescription(note.id)}>
+        {note.show ? 'Скрыть описание' : 'Показать описание'}
+      </button>
+    </p>
+  ));
 
-  return (
-    <div>
-      <div>
-        <input
-          name="first"
-          value={inputs.first}
-          onChange={(e) => setInputs({ ...inputs, first: e.target.value })}
-        />
-        <input
-          name="second"
-          value={inputs.second}
-          onChange={(e) => setInputs({ ...inputs, second: e.target.value })}
-        />
-        <input
-          name="third"
-          value={inputs.third}
-          onChange={(e) => setInputs({ ...inputs, third: e.target.value })}
-        />
-        <button onClick={() => handleUpdate(notes.findIndex((note) => note.first === inputs.first))}>
-          Обновить
-        </button>
-      </div>
-
-      <ul>
-        {notes.map((note, index) => (
-          <li key={index}>
-            {note.first} {note.second} {note.third}{" "}
-            <button onClick={() => handleClick(note)}>Заполнить</button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  return <div>{result}</div>;
 }
 
 export default App;
