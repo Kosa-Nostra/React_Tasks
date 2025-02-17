@@ -7,37 +7,43 @@ function id(){
 }
 
 
+
 function App() {
-  function getSum(arr) {
-    return arr.reduce((acc, elem) => acc + Number(elem), 0);
-  }
-  
-  function Calculator() {
-    const [value, setValue] = useState('');
-    const [nums, setNums] = useState([1, 2, 3]);
-  
-    function handleChange(event) {
-      setValue(event.target.value);
-    }
-  
-    function handleBlur(event) {
-      const newNum = Number(event.target.value);
-      if (!isNaN(newNum)) {
-        setNums([...nums, newNum]); // Обновляем nums
-      }
-      setValue(''); // Очищаем инпут
-    }
-  
-    const sum = getSum(nums); // Вычисляем сумму динамически
-  
-    return (
-      <div>
-        <p>{sum}</p>
-        <input value={value} onChange={handleChange} onBlur={handleBlur} />
-      </div>
-    );
-  }
-  
+	const [notes, setNotes] = useState([1, 2, 3, 4, 5]);
+	const [editNum, setEditNum] = useState(null);
+	const [value, setValue] = useState('');
+
+	function startEdit(index) {
+		setEditNum(index);
+		setValue(notes[index]);
+	}
+
+	function saveItem() {
+		if (editNum !== null) {
+			const updatedNotes = [...notes];
+			updatedNotes[editNum] = value;
+			setNotes(updatedNotes);
+			setEditNum(null); // Выходим из режима редактирования
+		}
+	}
+
+	return (
+		<div>
+			{notes.map((note, index) => (
+				<p key={index} onClick={() => startEdit(index)}>
+					{note}
+				</p>
+			))}
+
+			{editNum !== null && (
+				<div>
+					<input value={value} onChange={(e) => setValue(e.target.value)} />
+					<button onClick={saveItem}>Сохранить</button>
+				</div>
+			)}
+		</div>
+	);
 }
 
 export default App;
+
