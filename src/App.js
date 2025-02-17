@@ -9,9 +9,9 @@ function id(){
 function App() {
   return (
     <div>
-      <p>IsEdit - Стейт</p>
-      <p>elem - переменная</p>
-      <p>data - Стейт/Пропс</p>
+      <p>Products – контейнерный (логический) компонент</p>
+      <p>Product – промежуточный компонент</p>
+      <p>ProductField – презентационный (UI) компонент</p>
     </div>
   );
 }
