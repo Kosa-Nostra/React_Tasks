@@ -8,18 +8,55 @@ function id(){
 
 
 function App() {
-  return (
-    <div>
-      <p>Задача 1: Переключение темы (светлая/темная)
-      Создадим приложение, где будет кнопка для переключения темы, и два компонента (Header и Content), которые будут менять свой стиль в зависимости от выбранной темы.</p>
-      <p>Задача 2: Фильтрация списка товаров
-Создадим список товаров и поле для ввода, где пользователь может фильтровать товары по названию
-</p>
-<p>Задача 3: Опрос с выбором ответа
-Создадим небольшой опрос, где пользователь выбирает один из нескольких вариантов ответа.
-</p>
-    </div>
-  );
+  function TemperatureConverter() {
+    const [temp, setTemp] = useState("");
+    const [scale, setScale] = useState("C"); // "C" — Цельсий, "F" — Фаренгейт
+  
+    // Функция конвертации температуры
+    function toCelsius(fahrenheit) {
+      return ((fahrenheit - 32) * 5) / 9;
+    }
+  
+    function toFahrenheit(celsius) {
+      return (celsius * 9) / 5 + 32;
+    }
+  
+    // Функция обновления температуры
+    function handleChange(event, newScale) {
+      setTemp(event.target.value);
+      setScale(newScale);
+    }
+  
+    // Вычисление значений для инпутов
+    const celsius = scale === "F" ? toCelsius(temp) : temp;
+    const fahrenheit = scale === "C" ? toFahrenheit(temp) : temp;
+  
+    return (
+      <div>
+        <h3>Конвертер температуры</h3>
+        <TempInput scale="C" value={celsius} onChange={handleChange} />
+        <TempInput scale="F" value={fahrenheit} onChange={handleChange} />
+      </div>
+    );
+  }
+  
+  function TempInput({ scale, value, onChange }) {
+    const scaleNames = { C: "Цельсий", F: "Фаренгейт" };
+  
+    return (
+      <div>
+        <label>
+          Температура ({scaleNames[scale]}):{" "}
+          <input
+            type="number"
+            value={value}
+            onChange={(event) => onChange(event, scale)}
+          />
+        </label>
+      </div>
+    );
+  }
+  
 }
 
 export default App;
