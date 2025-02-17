@@ -9,8 +9,9 @@ function id(){
 function App() {
   return (
     <div>
-      <h2>Список пользователей:</h2>
-      <Users />
+      <p>IsEdit - Стейт</p>
+      <p>elem - переменная</p>
+      <p>data - Стейт/Пропс</p>
     </div>
   );
 }
