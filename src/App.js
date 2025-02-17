@@ -8,51 +8,32 @@ function id(){
 
 
 function App() {
-  function TemperatureConverter() {
-    const [temp, setTemp] = useState("");
-    const [scale, setScale] = useState("C"); // "C" — Цельсий, "F" — Фаренгейт
-  
-    // Функция конвертации температуры
-    function toCelsius(fahrenheit) {
-      return ((fahrenheit - 32) * 5) / 9;
-    }
-  
-    function toFahrenheit(celsius) {
-      return (celsius * 9) / 5 + 32;
-    }
-  
-    // Функция обновления температуры
-    function handleChange(event, newScale) {
-      setTemp(event.target.value);
-      setScale(newScale);
-    }
-  
-    // Вычисление значений для инпутов
-    const celsius = scale === "F" ? toCelsius(temp) : temp;
-    const fahrenheit = scale === "C" ? toFahrenheit(temp) : temp;
-  
-    return (
-      <div>
-        <h3>Конвертер температуры</h3>
-        <TempInput scale="C" value={celsius} onChange={handleChange} />
-        <TempInput scale="F" value={fahrenheit} onChange={handleChange} />
-      </div>
-    );
+  function getSum(arr) {
+    return arr.reduce((acc, elem) => acc + Number(elem), 0);
   }
   
-  function TempInput({ scale, value, onChange }) {
-    const scaleNames = { C: "Цельсий", F: "Фаренгейт" };
+  function Calculator() {
+    const [value, setValue] = useState('');
+    const [nums, setNums] = useState([1, 2, 3]);
+  
+    function handleChange(event) {
+      setValue(event.target.value);
+    }
+  
+    function handleBlur(event) {
+      const newNum = Number(event.target.value);
+      if (!isNaN(newNum)) {
+        setNums([...nums, newNum]); // Обновляем nums
+      }
+      setValue(''); // Очищаем инпут
+    }
+  
+    const sum = getSum(nums); // Вычисляем сумму динамически
   
     return (
       <div>
-        <label>
-          Температура ({scaleNames[scale]}):{" "}
-          <input
-            type="number"
-            value={value}
-            onChange={(event) => onChange(event, scale)}
-          />
-        </label>
+        <p>{sum}</p>
+        <input value={value} onChange={handleChange} onBlur={handleBlur} />
       </div>
     );
   }
