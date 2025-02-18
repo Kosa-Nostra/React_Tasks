@@ -9,7 +9,8 @@ const Container = styled.div`
 	text-align: center;
 `;
 const Text1 = styled.p`
-	color: orangered;
+	color: %{(props)=> (props.warn ? 'red' : 'white')};
+	background: %{(props)=> (props.warn ? 'yellow' : 'green')};
 	font-weight: bold;
 `;
 const Text2 = styled.p`
@@ -32,9 +33,9 @@ function App() {
 function Block() {
 	const p11 = 'aaa'
 	return (<Container>
-		<button onClick={p11}><Text1>btn1</Text1></button>
-		<button onClick={p11}><Text2>btn2</Text2></button>
-		<button type="reset" onClick={p11}><Text3>btn3</Text3></button>
+		<button onClick={p11}><Text1 warn>btn1</Text1></button>
+		<button onClick={p11}><Text1>btn2</Text1></button>
+		<button type="reset" onClick={p11}><Text1>btn3</Text1></button>
 	</Container>
 	);
 }
