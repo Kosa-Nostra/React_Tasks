@@ -36,9 +36,12 @@ function App() {
 }
 function Block1(){
 	return(
-<DIVA><p>Test</p></DIVA>,
-<DIVB><p>Test</p></DIVB>
-	);
+		<Container>
+			<DIVA>
+				<DIVB></DIVB>
+			</DIVA>
+		</Container>
+	)
 }
 export default App;
 
