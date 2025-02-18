@@ -31,7 +31,7 @@ border: 3px;
 
 function App() {
 	return (
-		<p>108 №1/№2 подключил Inputs</p>
+		<p>109 , использовал composes в Inputs</p>
 	);
 }
 function Block1(){
