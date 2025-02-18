@@ -23,6 +23,10 @@ height: 150px;
 background: yellow;
 border: 2px;
 `;
+const DIVB = styled(DIVA)`
+background: green;
+border: 3px;
+`
 
 
 function App() {
@@ -32,7 +36,8 @@ function App() {
 }
 function Block1(){
 	return(
-<DIVA><p>Test</p></DIVA>
+<DIVA><p>Test</p></DIVA>,
+<DIVB><p>Test</p></DIVB>
 	);
 }
 export default App;
