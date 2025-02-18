@@ -31,14 +31,14 @@ border: 3px;
 
 function App() {
 	return (
-		<p>109 , использовал composes в Inputs</p>
+		<p>110 ,сделал тени через box shadow в Inputs</p>
 	);
 }
 function Block1(){
 	return(
 		<Container>
 			<DIVA>
-				<DIVB>TEST 107#2</DIVB>
+				<DIVB></DIVB>
 			</DIVA>
 		</Container>
 	)
