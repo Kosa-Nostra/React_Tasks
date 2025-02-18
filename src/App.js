@@ -3,40 +3,36 @@ import './styles.css';
 import styled from 'styled-components';
 
 const Container = styled.div`
-	width: 200px;
-	border: 2px solid brown;
-	padding: 10px;
-	text-align: center;
-`;
-const Text1 = styled.p`
-	color: %{(props)=> (props.warn ? 'red' : 'white')};
-	background: %{(props)=> (props.warn ? 'yellow' : 'green')};
-	font-weight: bold;
-`;
-const Text2 = styled.p`
-	font-style: italic;
-	color: brown;
+	display: flex;
+	flex-direction: column;
+	width: 150px;
 `;
 
-const Text3 = styled.p`
+const Button = styled.input`
 	background-color: orange;
-	font-weight: bold;
+	font-size: 18px;
+	margin: 5px;
+`;
+const MdButton = styled(Button)`
 	color: white;
+	background-color: green;
+`;
+const DIVA = styled.div`
+width: 150px;
+height: 150px;
+background: yellow;
+border: 2px;
 `;
 
 
 function App() {
 	return (
-		<Block />
+		<Block1>TEST</Block1>
 	);
 }
-function Block() {
-	const p11 = 'aaa'
-	return (<Container>
-		<button onClick={p11}><Text1 warn>btn1</Text1></button>
-		<button onClick={p11}><Text1>btn2</Text1></button>
-		<button type="reset" onClick={p11}><Text1>btn3</Text1></button>
-	</Container>
+function Block1(){
+	return(
+<DIVA><p>Test</p></DIVA>
 	);
 }
 export default App;
