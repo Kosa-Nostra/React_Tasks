@@ -31,7 +31,7 @@ border: 3px;
 
 function App() {
 	return (
-		<Block1>TEST</Block1>
+		<p>108 №1/№2 подключил Inputs</p>
 	);
 }
 function Block1(){
