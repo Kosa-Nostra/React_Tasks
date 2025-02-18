@@ -6,12 +6,29 @@ import { styles } from "./styles";
 
 function App() {
 	return (
-		<div style={styles.class1}>
-			<p style={styles.class2}>text</p>
-			<p style={styles.class3}>text</p>
-			<p style={styles.class4}>text</p>
+		<div style = {{
+			width: '200px',
+			border: '2px solid brown',
+			padding: '10px',
+			textAlign: 'center' }}>
+			<p style={{
+				color: 'orangered',
+				fontWeight: 'bold' }}>
+				text
+			</p>
+			<p style = {{
+				fontStyle: 'brown',
+				color: 'brown' }}>
+				text
+			</p>
+			<p style = {{
+				backgroundColor: 'orange',
+				fontWeight: 'bold',
+				color: 'white' }}>
+				text
+			</p>
 		</div>
 	);
-}  
+}
 export default App;
 
