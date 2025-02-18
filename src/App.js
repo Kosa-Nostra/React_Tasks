@@ -26,11 +26,16 @@ const Text3 = styled.p`
 
 function App() {
 	return (
-		<Container>
-			<Text1>text</Text1>
-			<Text2>text</Text2>
-			<Text3>text</Text3>
-		</Container>
+		<Block />
+	);
+}
+function Block() {
+	const p11 = 'aaa'
+	return (<Container>
+		<button onClick={p11}><Text1>btn1</Text1></button>
+		<button onClick={p11}><Text2>btn2</Text2></button>
+		<button type="reset" onClick={p11}><Text3>btn3</Text3></button>
+	</Container>
 	);
 }
 export default App;
